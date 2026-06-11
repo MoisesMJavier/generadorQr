@@ -45,7 +45,7 @@ No requiere bases de datos ni backend. Para correr la aplicación localmente:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/mahojv/tu-repositorio-qr.git
+   git clone https://github.com/MoisesMJavier/generadorQr.git
    ```
 2. Abre el archivo `index.html` en tu navegador favorito.
 3. Alternativamente, puedes servirlo localmente usando cualquier servidor estático ligero:
@@ -58,4 +58,4 @@ No requiere bases de datos ni backend. Para correr la aplicación localmente:
 ## 👥 Créditos y Contribuciones
 
 * **Layout Base y Concepto Original:** Creado por [Antonio Heredia](https://github.com/Heran76) ([Portafolio](https://portfolioantonioheredia.netlify.app/)).
-* **Mejoras, Estilización Premium y Ampliación de Formatos:** Desarrollado y optimizado por [mahojv](https://github.com/mahojv).
+* **Mejoras, Estilización Premium y Ampliación de Formatos:** Desarrollado y optimizado por [MoisesMJavier](https://github.com/MoisesMJavier).
