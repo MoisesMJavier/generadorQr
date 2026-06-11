@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator Premium - Crea y Personaliza Códigos QR</title>
-    <meta name="description" content="Generador de códigos QR avanzado y totalmente personalizable. Crea códigos QR para enlaces web, redes WiFi, tarjetas de contacto, WhatsApp, correos y más. Personaliza colores, formas y añade tu logo gratis.">
+    <meta name="description"
+        content="Generador de códigos QR avanzado y totalmente personalizable. Crea códigos QR para enlaces web, redes WiFi, tarjetas de contacto, WhatsApp, correos y más. Personaliza colores, formas y añade tu logo gratis.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- CSS Estilos -->
     <link rel="stylesheet" href="./style.css">
     <!-- qr-code-styling Library via CDN -->
@@ -17,16 +21,18 @@
     <!-- JS Lógica -->
     <script defer src="./main.js"></script>
 </head>
+
 <body>
     <div class="app-background"></div>
-    
+
     <header class="app-header">
         <div class="logo-area">
             <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect x="3" y="3" width="6" height="6" rx="1" />
                 <rect x="15" y="3" width="6" height="6" rx="1" />
                 <rect x="3" y="15" width="6" height="6" rx="1" />
-                <path d="M16 16h2v2h-2zm2 2h2v2h-2zm-2 2h2v-2h-2zm-4-4h2v2h-2zm2 2h2v2h-2zm-2 2h2v-2h-2zm0-4v-2h-2v2zm2 0h-2v2h2zm-4-4H8v2h2v-2zm-2-2H6v2h2v-2z" />
+                <path
+                    d="M16 16h2v2h-2zm2 2h2v2h-2zm-2 2h2v-2h-2zm-4-4h2v2h-2zm2 2h2v2h-2zm-2 2h2v-2h-2zm0-4v-2h-2v2zm2 0h-2v2h2zm-4-4H8v2h2v-2zm-2-2H6v2h2v-2z" />
             </svg>
             <h1>QR Code Studio</h1>
         </div>
@@ -41,39 +47,75 @@
                 <h2 class="section-title">1. Elige el tipo de QR</h2>
                 <nav class="tabs-list" aria-label="Tipos de QR" id="qr-types-nav">
                     <button class="tab-btn active" data-type="url" id="tab-url" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
                         <span>Enlace URL</span>
                     </button>
                     <button class="tab-btn" data-type="text" id="tab-text" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
                         <span>Texto</span>
                     </button>
                     <button class="tab-btn" data-type="wifi" id="tab-wifi" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20" stroke-linecap="round" stroke-width="3"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                            <line x1="12" y1="20" x2="12.01" y2="20" stroke-linecap="round" stroke-width="3"></line>
+                        </svg>
                         <span>WiFi</span>
                     </button>
                     <button class="tab-btn" data-type="vcard" id="tab-vcard" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                         <span>Contacto vCard</span>
                     </button>
                     <button class="tab-btn" data-type="email" id="tab-email" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
                         <span>Email</span>
                     </button>
                     <button class="tab-btn" data-type="whatsapp" id="tab-whatsapp" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                            </path>
+                        </svg>
                         <span>WhatsApp</span>
                     </button>
                     <button class="tab-btn" data-type="phone" id="tab-phone" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
                         <span>Llamada</span>
                     </button>
                     <button class="tab-btn" data-type="sms" id="tab-sms" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                         <span>SMS</span>
                     </button>
                     <button class="tab-btn" data-type="school" id="tab-school" type="button">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                        </svg>
                         <span>Docentes</span>
                     </button>
                 </nav>
@@ -82,7 +124,7 @@
             <!-- Contenedores de Campos Dinámicos -->
             <div class="dynamic-inputs-area">
                 <h2 class="section-title">2. Ingresa los datos</h2>
-                
+
                 <!-- Campos URL -->
                 <div class="inputs-group active" id="group-url">
                     <label for="input-url">Enlace / Sitio Web</label>
@@ -96,8 +138,10 @@
                 <!-- Campos Texto -->
                 <div class="inputs-group" id="group-text">
                     <label for="input-text">Texto Plano</label>
-                    <textarea id="input-text" class="form-input text-area" placeholder="Escribe el texto que deseas codificar..."></textarea>
-                    <span class="help-text">Cualquier tipo de mensaje escrito. Al escanearlo se mostrará como texto simple.</span>
+                    <textarea id="input-text" class="form-input text-area"
+                        placeholder="Escribe el texto que deseas codificar..."></textarea>
+                    <span class="help-text">Cualquier tipo de mensaje escrito. Al escanearlo se mostrará como texto
+                        simple.</span>
                 </div>
 
                 <!-- Campos WiFi -->
@@ -119,7 +163,8 @@
                     <div class="form-row margin-top">
                         <div class="form-col" id="wifi-pass-container">
                             <label for="input-wifi-password">Contraseña *</label>
-                            <input type="password" id="input-wifi-password" class="form-input" placeholder="••••••••••••" />
+                            <input type="password" id="input-wifi-password" class="form-input"
+                                placeholder="••••••••••••" />
                         </div>
                     </div>
                     <div class="checkbox-container margin-top">
@@ -143,17 +188,20 @@
                     <div class="form-row margin-top">
                         <div class="form-col">
                             <label for="input-vcard-phone">Móvil</label>
-                            <input type="tel" id="input-vcard-phone" class="form-input" placeholder="+52 1 55 1234 5678" />
+                            <input type="tel" id="input-vcard-phone" class="form-input"
+                                placeholder="+52 1 55 1234 5678" />
                         </div>
                         <div class="form-col">
                             <label for="input-vcard-email">Correo Electrónico</label>
-                            <input type="email" id="input-vcard-email" class="form-input" placeholder="juan.perez@empresa.com" />
+                            <input type="email" id="input-vcard-email" class="form-input"
+                                placeholder="juan.perez@empresa.com" />
                         </div>
                     </div>
                     <div class="form-row margin-top">
                         <div class="form-col">
                             <label for="input-vcard-company">Compañía</label>
-                            <input type="text" id="input-vcard-company" class="form-input" placeholder="Mi Empresa S.A." />
+                            <input type="text" id="input-vcard-company" class="form-input"
+                                placeholder="Mi Empresa S.A." />
                         </div>
                         <div class="form-col">
                             <label for="input-vcard-job">Cargo / Puesto</label>
@@ -163,13 +211,15 @@
                     <div class="form-row margin-top">
                         <div class="form-col">
                             <label for="input-vcard-website">Sitio Web</label>
-                            <input type="text" id="input-vcard-website" class="form-input" placeholder="https://www.empresa.com" />
+                            <input type="text" id="input-vcard-website" class="form-input"
+                                placeholder="https://www.empresa.com" />
                         </div>
                     </div>
                     <div class="form-row margin-top">
                         <div class="form-col">
                             <label for="input-vcard-address">Dirección</label>
-                            <input type="text" id="input-vcard-address" class="form-input" placeholder="Av. Reforma 123, Col. Centro" />
+                            <input type="text" id="input-vcard-address" class="form-input"
+                                placeholder="Av. Reforma 123, Col. Centro" />
                         </div>
                     </div>
                 </div>
@@ -178,15 +228,17 @@
                 <div class="inputs-group" id="group-email">
                     <label for="input-email-to">Correo del Destinatario *</label>
                     <input type="email" id="input-email-to" class="form-input" placeholder="correo@ejemplo.com" />
-                    
+
                     <div class="margin-top">
                         <label for="input-email-subject">Asunto</label>
-                        <input type="text" id="input-email-subject" class="form-input" placeholder="Asunto del correo" />
+                        <input type="text" id="input-email-subject" class="form-input"
+                            placeholder="Asunto del correo" />
                     </div>
 
                     <div class="margin-top">
                         <label for="input-email-body">Cuerpo del Correo</label>
-                        <textarea id="input-email-body" class="form-input text-area-short" placeholder="Escribe el mensaje aquí..."></textarea>
+                        <textarea id="input-email-body" class="form-input text-area-short"
+                            placeholder="Escribe el mensaje aquí..."></textarea>
                     </div>
                 </div>
 
@@ -194,11 +246,13 @@
                 <div class="inputs-group" id="group-whatsapp">
                     <label for="input-wa-phone">Número de Teléfono (con código de país, ej: 5215512345678) *</label>
                     <input type="tel" id="input-wa-phone" class="form-input" placeholder="5215512345678" />
-                    <span class="help-text">No uses el símbolo '+' ni espacios. Por ejemplo, para México usa 521 + número.</span>
-                    
+                    <span class="help-text">No uses el símbolo '+' ni espacios. Por ejemplo, para México usa 521 +
+                        número.</span>
+
                     <div class="margin-top">
                         <label for="input-wa-message">Mensaje Predeterminado (opcional)</label>
-                        <textarea id="input-wa-message" class="form-input text-area-short" placeholder="Hola, me interesa obtener más información..."></textarea>
+                        <textarea id="input-wa-message" class="form-input text-area-short"
+                            placeholder="Hola, me interesa obtener más información..."></textarea>
                     </div>
                 </div>
 
@@ -213,10 +267,11 @@
                 <div class="inputs-group" id="group-sms">
                     <label for="input-sms-phone">Número del Destinatario *</label>
                     <input type="tel" id="input-sms-phone" class="form-input" placeholder="+525512345678" />
-                    
+
                     <div class="margin-top">
                         <label for="input-sms-message">Mensaje del SMS</label>
-                        <textarea id="input-sms-message" class="form-input text-area-short" placeholder="Escribe tu SMS..."></textarea>
+                        <textarea id="input-sms-message" class="form-input text-area-short"
+                            placeholder="Escribe tu SMS..."></textarea>
                     </div>
                 </div>
 
@@ -238,21 +293,24 @@
 
                     <div class="margin-top" id="school-custom-group-container" style="display: none;">
                         <label for="input-school-custom-group">Especificar Grupo</label>
-                        <input type="text" id="input-school-custom-group" class="form-input" placeholder="Ej: Grupo D" />
+                        <input type="text" id="input-school-custom-group" class="form-input"
+                            placeholder="Ej: Grupo D" />
                     </div>
 
                     <div class="margin-top">
                         <label for="input-school-commission">Comisión / Asignación *</label>
-                        <textarea id="input-school-commission" class="form-input text-area-short" placeholder="Ej: Pedagógica y Control Escolar"></textarea>
+                        <textarea id="input-school-commission" class="form-input text-area-short"
+                            placeholder="Ej: Pedagógica y Control Escolar"></textarea>
                     </div>
-                    <span class="help-text">Al escanear el QR, mostrará los datos de asignación directamente en la pantalla de la maestra.</span>
+                    <span class="help-text">Al escanear el QR, mostrará los datos de asignación directamente en la
+                        pantalla de la maestra.</span>
                 </div>
             </div>
 
             <!-- Panel de Personalización -->
             <div class="customization-area">
                 <h2 class="section-title">3. Personalización del QR</h2>
-                
+
                 <!-- Colores -->
                 <div class="custom-card">
                     <h3 class="card-subtitle">Colores</h3>
@@ -318,24 +376,54 @@
                     </div>
                 </div>
 
-                <!-- Carga de Logotipo Central -->
+                <!-- Centro del QR (Opcional) -->
                 <div class="custom-card margin-top">
-                    <h3 class="card-subtitle">Logotipo en el Centro</h3>
-                    <div class="logo-upload-wrapper">
+                    <h3 class="card-subtitle">Centro del QR (Opcional)</h3>
+                    
+                    <div class="center-option-toggle">
+                        <button type="button" class="btn-toggle-option active" id="btn-opt-logo-image">Imagen</button>
+                        <button type="button" class="btn-toggle-option" id="btn-opt-logo-text">Texto</button>
+                    </div>
+
+                    <!-- Opción 1: Subir Imagen (Logo) -->
+                    <div class="logo-upload-wrapper" id="wrapper-logo-image">
                         <label for="input-logo-file" class="file-upload-label">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
                             <span>Subir Imagen de Logo</span>
                         </label>
                         <input type="file" id="input-logo-file" accept="image/*" />
-                        
+
                         <div class="logo-preview-container" id="logo-preview-area">
                             <img id="logo-preview-img" src="" alt="Previsualización del logo" />
                             <button type="button" id="button-clear-logo" class="btn-clear-logo" title="Eliminar Logo">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </button>
                         </div>
                     </div>
-                    <span class="help-text">Sube tu logo para integrarlo en el centro del código QR. Recomendamos activar la precisión "Alto (30%)".</span>
+
+                    <!-- Opción 2: Texto en el Centro -->
+                    <div class="logo-text-wrapper" id="wrapper-logo-text" style="display: none;">
+                        <label for="input-center-text">Texto Central</label>
+                        <input type="text" id="input-center-text" class="form-input" placeholder="Ej: WIFI, SCAN, A" maxlength="15" />
+                    </div>
+
+                    <!-- Ajuste de Proporción / Tamaño -->
+                    <div class="margin-top" id="logo-size-container">
+                        <div class="size-header">
+                            <label for="input-logo-size">Proporción del Centro</label>
+                            <span class="size-value" id="lbl-logo-size-value">35%</span>
+                        </div>
+                        <input type="range" id="input-logo-size" min="0.1" max="0.5" step="0.05" value="0.35" class="size-slider" />
+                    </div>
+                    
+                    <span class="help-text">Agrega un logotipo o un texto corto en el centro. Recomendamos activar la precisión "Alto (30%)".</span>
                 </div>
             </div>
         </section>
@@ -344,7 +432,7 @@
         <section class="preview-panel">
             <div class="sticky-preview-wrapper">
                 <h2 class="section-title text-center">Vista Previa</h2>
-                
+
                 <!-- Contenedor del QR Canvas/SVG -->
                 <div class="qr-preview-card">
                     <div id="qr-canvas-holder">
@@ -363,7 +451,8 @@
                             <label for="input-size">Tamaño de exportación</label>
                             <span class="size-value" id="lbl-size-value">350 x 350 px</span>
                         </div>
-                        <input type="range" id="input-size" min="200" max="1000" step="50" value="350" class="size-slider" />
+                        <input type="range" id="input-size" min="200" max="1000" step="50" value="350"
+                            class="size-slider" />
                     </div>
 
                     <!-- Botón y formato -->
@@ -376,7 +465,12 @@
                             </select>
                         </div>
                         <button type="button" id="button-download" class="btn-download">
-                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
                             <span>Descargar QR</span>
                         </button>
                     </div>
@@ -386,18 +480,22 @@
     </main>
 
     <footer class="app-footer">
-        <p class="creator">Creado con ❤️ por <a href="https://portfolioantonioheredia.netlify.app/" target="_blank" rel="noopener">Antonio Heredia</a> | Optimizado por <a href="https://github.com/MoisesMJavier" target="_blank" rel="noopener">MoisesMJavier</a></p>
+        <p class="creator">Creado con ❤️ por <a href="https://github.com/MoisesMJavier" target="_blank"
+                rel="noopener">MoisesMJavier</a></p>
     </footer>
 
     <!-- Pantalla de visualización de asignación (QR Escaneado) -->
     <div id="assignment-display" class="assignment-screen" style="display: none;">
         <div class="assignment-card">
             <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                </svg>
             </div>
             <h2>Asignación Docente</h2>
             <div class="divider"></div>
-            
+
             <div class="display-row">
                 <span class="display-label">Docente</span>
                 <span class="display-value" id="display-teacher-name">-</span>
@@ -413,4 +511,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -1,5 +1,7 @@
 let qrCode;
 let logoBase64 = "";
+let centerMode = "image";
+let centerText = "";
 
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -231,6 +233,49 @@ function setupEventListeners() {
         });
     }
 
+    const btnOptImage = document.getElementById("btn-opt-logo-image");
+    const btnOptText = document.getElementById("btn-opt-logo-text");
+    const wrapperImage = document.getElementById("wrapper-logo-image");
+    const wrapperText = document.getElementById("wrapper-logo-text");
+    const centerTextInput = document.getElementById("input-center-text");
+
+    if (btnOptImage && btnOptText && wrapperImage && wrapperText) {
+        btnOptImage.addEventListener("click", () => {
+            btnOptImage.classList.add("active");
+            btnOptText.classList.remove("active");
+            wrapperImage.style.display = "flex";
+            wrapperText.style.display = "none";
+            centerMode = "image";
+            updateQROptions();
+        });
+
+        btnOptText.addEventListener("click", () => {
+            btnOptText.classList.add("active");
+            btnOptImage.classList.remove("active");
+            wrapperText.style.display = "block";
+            wrapperImage.style.display = "none";
+            centerMode = "text";
+            updateQROptions();
+        });
+    }
+
+    if (centerTextInput) {
+        centerTextInput.addEventListener("input", (e) => {
+            centerText = e.target.value.trim();
+            updateQROptions();
+        });
+    }
+
+    const logoSizeInput = document.getElementById("input-logo-size");
+    const logoSizeLabel = document.getElementById("lbl-logo-size-value");
+    if (logoSizeInput && logoSizeLabel) {
+        logoSizeInput.addEventListener("input", (e) => {
+            const val = parseFloat(e.target.value);
+            logoSizeLabel.innerText = `${Math.round(val * 100)}%`;
+            updateQROptions();
+        });
+    }
+
     const sizeInput = document.getElementById("input-size");
     const sizeLabel = document.getElementById("lbl-size-value");
     const downloadBtn = document.getElementById("button-download");
@@ -419,6 +464,15 @@ function updateQROptions() {
     const cornerDotType = document.getElementById("input-corner-dot-type").value;
     const ecc = document.getElementById("input-ecc").value;
 
+    let centerImage = "";
+    if (centerMode === "image") {
+        centerImage = logoBase64 || "";
+    } else if (centerMode === "text" && centerText) {
+        centerImage = textToImage(centerText, fgColor, bgColor);
+    }
+
+    const logoSize = parseFloat(document.getElementById("input-logo-size").value) || 0.35;
+
     qrCode.update({
         dotsOptions: {
             color: fgColor,
@@ -438,7 +492,12 @@ function updateQROptions() {
         qrOptions: {
             errorCorrectionLevel: ecc
         },
-        image: logoBase64 || ""
+        image: centerImage,
+        imageOptions: {
+            hideBackgroundDots: true,
+            imageSize: logoSize,
+            margin: 5
+        }
     });
 }
 
@@ -481,4 +540,33 @@ function debounce(func, delay) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), delay);
     };
+}
+
+function textToImage(text, color, bgColor) {
+    const canvas = document.createElement("canvas");
+    canvas.width = 250;
+    canvas.height = 250;
+    const ctx = canvas.getContext("2d");
+    
+    ctx.fillStyle = bgColor;
+    ctx.beginPath();
+    ctx.arc(125, 125, 120, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    
+    ctx.fillStyle = color;
+    let fontSize = 65;
+    if (text.length > 3) fontSize = 50;
+    if (text.length > 6) fontSize = 35;
+    if (text.length > 10) fontSize = 24;
+    
+    ctx.font = `bold ${fontSize}px sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(text, 125, 125);
+    
+    return canvas.toDataURL("image/png");
 }
