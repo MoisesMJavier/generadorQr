@@ -2,6 +2,16 @@ let qrCode;
 let logoBase64 = "";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const docente = urlParams.get("docente");
+    const grupo = urlParams.get("grupo");
+    const comision = urlParams.get("comision");
+
+    if (docente) {
+        showAssignment(docente, grupo, comision);
+        return;
+    }
+
     if (typeof QRCodeStyling !== "undefined") {
         initQR();
     } else {
@@ -13,6 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     }
 });
+
+function showAssignment(docente, grupo, comision) {
+    const appHeader = document.querySelector(".app-header");
+    const appContainer = document.querySelector(".app-container");
+    const appFooter = document.querySelector(".app-footer");
+    
+    if (appHeader) appHeader.style.display = "none";
+    if (appContainer) appContainer.style.display = "none";
+    if (appFooter) appFooter.style.display = "none";
+
+    const displayScreen = document.getElementById("assignment-display");
+    if (displayScreen) {
+        displayScreen.style.display = "flex";
+        document.getElementById("display-teacher-name").innerText = docente;
+        document.getElementById("display-group-name").innerText = grupo || "No asignado";
+        document.getElementById("display-commission-name").innerText = comision || "Ninguna";
+    }
+}
 
 function initQR() {
     const canvasHolder = document.getElementById("qr-canvas-holder");
@@ -113,6 +141,21 @@ function setupEventListeners() {
             } else {
                 wifiPassContainer.style.opacity = "1";
                 wifiPassContainer.style.pointerEvents = "all";
+            }
+            updateQRData();
+        });
+    }
+
+    const schoolGroupSelect = document.getElementById("input-school-group");
+    const schoolCustomGroupContainer = document.getElementById("school-custom-group-container");
+    if (schoolGroupSelect && schoolCustomGroupContainer) {
+        schoolGroupSelect.addEventListener("change", () => {
+            if (schoolGroupSelect.value === "custom") {
+                schoolCustomGroupContainer.style.display = "block";
+            } else {
+                schoolCustomGroupContainer.style.display = "none";
+                const customGroupInput = document.getElementById("input-school-custom-group");
+                if (customGroupInput) customGroupInput.value = "";
             }
             updateQRData();
         });
@@ -318,6 +361,21 @@ function getActiveQRData() {
                 smsStr += `?body=${encodeURIComponent(message)}`;
             }
             return smsStr;
+        }
+        case "school": {
+            const teacher = document.getElementById("input-school-teacher").value.trim();
+            const groupSelect = document.getElementById("input-school-group").value;
+            const customGroup = document.getElementById("input-school-custom-group").value.trim();
+            const commission = document.getElementById("input-school-commission").value.trim();
+            
+            if (!teacher) return "";
+            
+            const group = groupSelect === "custom" ? customGroup : groupSelect;
+            
+            const baseUrl = window.location.origin + window.location.pathname;
+            const qrUrl = `${baseUrl}?docente=${encodeURIComponent(teacher)}&grupo=${encodeURIComponent(group)}&comision=${encodeURIComponent(commission)}`;
+            
+            return qrUrl;
         }
         default:
             return "";

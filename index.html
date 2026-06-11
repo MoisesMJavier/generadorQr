@@ -72,6 +72,10 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                         <span>SMS</span>
                     </button>
+                    <button class="tab-btn" data-type="school" id="tab-school" type="button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+                        <span>Docentes</span>
+                    </button>
                 </nav>
             </div>
 
@@ -215,6 +219,34 @@
                         <textarea id="input-sms-message" class="form-input text-area-short" placeholder="Escribe tu SMS..."></textarea>
                     </div>
                 </div>
+
+                <div class="inputs-group" id="group-school">
+                    <label for="input-school-teacher">Nombre de la Mtra. / Docente *</label>
+                    <input type="text" id="input-school-teacher" class="form-input" placeholder="Ej: Mtra. Tere" />
+
+                    <div class="form-row margin-top">
+                        <div class="form-col">
+                            <label for="input-school-group">Grupo Asignado *</label>
+                            <select id="input-school-group" class="form-input">
+                                <option value="Grupo A" selected>Grupo A</option>
+                                <option value="Grupo B">Grupo B</option>
+                                <option value="Grupo C">Grupo C</option>
+                                <option value="custom">Otro Grupo (Especificar)...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="margin-top" id="school-custom-group-container" style="display: none;">
+                        <label for="input-school-custom-group">Especificar Grupo</label>
+                        <input type="text" id="input-school-custom-group" class="form-input" placeholder="Ej: Grupo D" />
+                    </div>
+
+                    <div class="margin-top">
+                        <label for="input-school-commission">Comisión / Asignación *</label>
+                        <textarea id="input-school-commission" class="form-input text-area-short" placeholder="Ej: Pedagógica y Control Escolar"></textarea>
+                    </div>
+                    <span class="help-text">Al escanear el QR, mostrará los datos de asignación directamente en la pantalla de la maestra.</span>
+                </div>
             </div>
 
             <!-- Panel de Personalización -->
@@ -356,5 +388,31 @@
     <footer class="app-footer">
         <p class="creator">Creado con ❤️ por <a href="https://portfolioantonioheredia.netlify.app/" target="_blank" rel="noopener">Antonio Heredia</a> | Optimizado por <a href="https://github.com/MoisesMJavier" target="_blank" rel="noopener">MoisesMJavier</a></p>
     </footer>
+
+    <!-- Pantalla de visualización de asignación (QR Escaneado) -->
+    <div id="assignment-display" class="assignment-screen" style="display: none;">
+        <div class="assignment-card">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+            </div>
+            <h2>Asignación Docente</h2>
+            <div class="divider"></div>
+            
+            <div class="display-row">
+                <span class="display-label">Docente</span>
+                <span class="display-value" id="display-teacher-name">-</span>
+            </div>
+            <div class="display-row">
+                <span class="display-label">Grupo Asignado</span>
+                <span class="display-value highlight-group" id="display-group-name">-</span>
+            </div>
+            <div class="display-row">
+                <span class="display-label">Comisión</span>
+                <span class="display-value" id="display-commission-name">-</span>
+            </div>
+            
+            <a href="./" class="btn-back-to-generator">Ir al Generador de QR</a>
+        </div>
+    </div>
 </body>
 </html>
