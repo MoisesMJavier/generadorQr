@@ -118,6 +118,21 @@ function setupEventListeners() {
         });
     }
 
+    const schoolGroupSelect = document.getElementById("input-school-group");
+    const schoolCustomGroupContainer = document.getElementById("school-custom-group-container");
+    if (schoolGroupSelect && schoolCustomGroupContainer) {
+        schoolGroupSelect.addEventListener("change", () => {
+            if (schoolGroupSelect.value === "custom") {
+                schoolCustomGroupContainer.style.display = "block";
+            } else {
+                schoolCustomGroupContainer.style.display = "none";
+                const customGroupInput = document.getElementById("input-school-custom-group");
+                if (customGroupInput) customGroupInput.value = "";
+            }
+            updateQRData();
+        });
+    }
+
     const fgColorInput = document.getElementById("input-fg-color");
     const bgColorInput = document.getElementById("input-bg-color");
     const fgLabel = document.getElementById("lbl-fg-color");
@@ -318,6 +333,23 @@ function getActiveQRData() {
                 smsStr += `?body=${encodeURIComponent(message)}`;
             }
             return smsStr;
+        }
+        case "school": {
+            const teacher = document.getElementById("input-school-teacher").value.trim();
+            const groupSelect = document.getElementById("input-school-group").value;
+            const customGroup = document.getElementById("input-school-custom-group").value.trim();
+            const commission = document.getElementById("input-school-commission").value.trim();
+            
+            if (!teacher) return "";
+            
+            const group = groupSelect === "custom" ? customGroup : groupSelect;
+            
+            let result = `📋 ASIGNACIÓN DOCENTE\n`;
+            result += `• Docente: ${teacher}\n`;
+            if (group) result += `• Grupo: ${group}\n`;
+            if (commission) result += `• Comisión: ${commission}`;
+            
+            return result;
         }
         default:
             return "";
