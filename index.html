@@ -376,10 +376,17 @@
                     </div>
                 </div>
 
-                <!-- Carga de Logotipo Central -->
+                <!-- Centro del QR (Opcional) -->
                 <div class="custom-card margin-top">
-                    <h3 class="card-subtitle">Logotipo en el Centro</h3>
-                    <div class="logo-upload-wrapper">
+                    <h3 class="card-subtitle">Centro del QR (Opcional)</h3>
+                    
+                    <div class="center-option-toggle">
+                        <button type="button" class="btn-toggle-option active" id="btn-opt-logo-image">Imagen</button>
+                        <button type="button" class="btn-toggle-option" id="btn-opt-logo-text">Texto</button>
+                    </div>
+
+                    <!-- Opción 1: Subir Imagen (Logo) -->
+                    <div class="logo-upload-wrapper" id="wrapper-logo-image">
                         <label for="input-logo-file" class="file-upload-label">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -400,8 +407,23 @@
                             </button>
                         </div>
                     </div>
-                    <span class="help-text">Sube tu logo para integrarlo en el centro del código QR. Recomendamos
-                        activar la precisión "Alto (30%)".</span>
+
+                    <!-- Opción 2: Texto en el Centro -->
+                    <div class="logo-text-wrapper" id="wrapper-logo-text" style="display: none;">
+                        <label for="input-center-text">Texto Central</label>
+                        <input type="text" id="input-center-text" class="form-input" placeholder="Ej: WIFI, SCAN, A" maxlength="15" />
+                    </div>
+
+                    <!-- Ajuste de Proporción / Tamaño -->
+                    <div class="margin-top" id="logo-size-container">
+                        <div class="size-header">
+                            <label for="input-logo-size">Proporción del Centro</label>
+                            <span class="size-value" id="lbl-logo-size-value">35%</span>
+                        </div>
+                        <input type="range" id="input-logo-size" min="0.1" max="0.5" step="0.05" value="0.35" class="size-slider" />
+                    </div>
+                    
+                    <span class="help-text">Agrega un logotipo o un texto corto en el centro. Recomendamos activar la precisión "Alto (30%)".</span>
                 </div>
             </div>
         </section>

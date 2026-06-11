@@ -897,3 +897,38 @@ label {
     color: var(--text-primary);
     border-color: var(--text-secondary);
 }
+
+/* Selector de opción de logotipo (Imagen o Texto) */
+.center-option-toggle {
+    display: flex;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 3px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.btn-toggle-option {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-toggle-option.active {
+    background: var(--accent-indigo);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+}
+
+.logo-text-wrapper {
+    margin-bottom: 15px;
+}
