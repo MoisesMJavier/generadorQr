@@ -52,7 +52,7 @@ function initQR() {
         width: 330,
         height: 330,
         type: "canvas",
-        data: "https://portfolioantonioheredia.netlify.app/",
+        data: "https://google.com/",
         image: "",
         dotsOptions: {
             color: "#0f172a",
@@ -89,7 +89,7 @@ function initQR() {
     
     const inputUrl = document.getElementById("input-url");
     if (inputUrl) {
-        inputUrl.value = "portfolioantonioheredia.netlify.app/";
+        inputUrl.value = "google.com";
         updateQRData();
     }
 }
