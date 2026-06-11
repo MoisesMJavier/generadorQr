@@ -388,5 +388,31 @@
     <footer class="app-footer">
         <p class="creator">Creado con ❤️ por <a href="https://portfolioantonioheredia.netlify.app/" target="_blank" rel="noopener">Antonio Heredia</a> | Optimizado por <a href="https://github.com/MoisesMJavier" target="_blank" rel="noopener">MoisesMJavier</a></p>
     </footer>
+
+    <!-- Pantalla de visualización de asignación (QR Escaneado) -->
+    <div id="assignment-display" class="assignment-screen" style="display: none;">
+        <div class="assignment-card">
+            <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+            </div>
+            <h2>Asignación Docente</h2>
+            <div class="divider"></div>
+            
+            <div class="display-row">
+                <span class="display-label">Docente</span>
+                <span class="display-value" id="display-teacher-name">-</span>
+            </div>
+            <div class="display-row">
+                <span class="display-label">Grupo Asignado</span>
+                <span class="display-value highlight-group" id="display-group-name">-</span>
+            </div>
+            <div class="display-row">
+                <span class="display-label">Comisión</span>
+                <span class="display-value" id="display-commission-name">-</span>
+            </div>
+            
+            <a href="./" class="btn-back-to-generator">Ir al Generador de QR</a>
+        </div>
+    </div>
 </body>
 </html>
