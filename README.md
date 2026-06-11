@@ -59,3 +59,4 @@ No requiere bases de datos ni backend. Para correr la aplicación localmente:
 
 * **Layout Base y Concepto Original:** Creado por [Antonio Heredia](https://github.com/Heran76) ([Portafolio](https://portfolioantonioheredia.netlify.app/)).
 * **Mejoras, Estilización Premium y Ampliación de Formatos:** Desarrollado y optimizado por [MoisesMJavier](https://github.com/MoisesMJavier).
+
