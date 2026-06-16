@@ -9,3 +9,4 @@ services:
     volumes:
       - .:/usr/share/nginx/html:ro
     restart: always
+
